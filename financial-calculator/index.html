@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mortgage Calculator</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css" />
+  </head>
+  <body>
+    <header>
+    </header>
+    <main>
+      <form>
+        <label for="principal">Principal</label>
+        <input type="number" name="principal" id="principal" />
+        <label for="interestRate">Interest Rate</label>
+        <input type="number" name="interestRate" id="interestRate" />
+        <label for="loanMonths">Principal</label>
+        <input type="number" name="months" id="loanMonths" />
+
+        <button id="calcTemp" type="button" onclick="calculate();">Calculate Mortgage</button>
+        <label for="answer">Monthly Payment</label>
+        <h1 id="answer"></h1>
+      </form>
+    </main>
+    <footer></footer>
+    <script src="index.js"></script>
+  </body>
 </html>
