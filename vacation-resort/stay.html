@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overnight Cost Estimator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  </head>
+  <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"></a></li>
+                <li><a href="stay.html"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+      <h1>Overnight Cost Estimator</h1>
+
+      <form id="costEstimatorForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <br />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <br />
+
+        <label for="checkInDate">Check-in Date:</label>
+        <input type="date" id="checkInDate" name="checkInDate" required />
+        <br />
+
+        <label for="nights">Number of Nights:</label>
+        <input type="number" id="nights" name="nights" min="1" max="28" required />
+        <br />
+
+        <label>Room Type:</label>
+        <input type="radio" id="queen" name="roomType" value="Queen" required />
+        <label for="queen">Queen</label>
+        <br />
+
+        <input type="radio" id="king" name="roomType" value="King" required />
+        <label for="king">King</label>
+        <br />
+
+        <input type="radio" id="twoBedroomSuite" name="roomType" value="2-Bedroom Suite" required />
+        <label for="twoBedroomSuite">2-Bedroom Suite</label>
+
+        <br />
+        <br />
+        <label for="adults">Number of Adults:</label>
+        <input type="number" id="adults" name="adults" min="1" max="4" required />
+        <br />
+
+        <label for="children">Number of Children:</label>
+        <input type="number" id="children" name="children" min="0" max="4" required />
+        <br />
+
+        <label>Discount:</label>
+        <br />
+        
+        <input type="radio" id="none" name="discount" value="0" required />
+        <label for="none">None</label>
+
+        <br />
+        <input type="radio" id="aaaSenior" name="discount" value="AAA/Senior" />
+        <label for="aaaSenior">AAA/Senior (10%)</label>
+
+        <br />
+        <input type="radio" id="military" name="discount" value="Military" />
+        <label for="military">Military (20%)</label>
+
+        <br />
+
+        <br />
+        <button type="submit" id="estimateButton">Estimate Stay Cost</button>
+      </form>
+
+      <div id="messageDiv"></div>
+      <div id="costBreakdown" style="display: none">
+        <p>Original Room Cost: $<span id="originalRoomCost"></span></p>
+        <p>Discount: $<span id="discountAmount"></span></p>
+        <p>Discounted Room Cost: $<span id="discountedRoomCost"></span></p>
+        <p>Tax: $<span id="tax"></span></p>
+        <p>Total Cost of the Stay: $<span id="totalCost"></span></p>
+      </div>
+
+      <script src="index.js"></script>
+    </div>
+  </body>
+</html>
