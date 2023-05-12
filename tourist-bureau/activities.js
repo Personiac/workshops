@@ -128,7 +128,6 @@ function loadLists() {
     return;
   }
   let categoryIndex = parseInt(categoryList.value);
-  // let categoryIndex = categoryList.selectedIndex;
   let selectedCategory = categories[categoryIndex];
   const filteredActivities = findActivityByCategory(selectedCategory);
 
@@ -164,10 +163,6 @@ function findActivityById(id) {
 
 function loadActivityDetails() {
   let selectedActivity = findActivityById(activityList.value);
-  //   if (!selectedActivity) {
-  //     activityDetails.style.display = "none";
-  //     return;
-  //   }
   displayActivityDetails(selectedActivity);
   hideActivityDetails(false);
 }
