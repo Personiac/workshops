@@ -116,36 +116,76 @@ let activities = [
 const categoryList = document.querySelector("#category-list");
 const activityList = document.querySelector("#activity-list");
 
+const activityDetails = document.querySelector("#activity-details");
+const activityName = document.querySelector("#activity-details h3");
+const activityDescription = document.querySelector("#activity-details p");
+const activityLocation = document.querySelector("#activity-details address");
+
 function loadLists() {
-    if (categoryList.value == "") {
-        activityList.innerHTML = "";
-        return;
-    }
-    let categoryIndex = parseInt(categoryList.value);
-    // let categoryIndex = categoryList.selectedIndex;
-    let selectedCategory = categories[categoryIndex];
-    const filteredActivities = findActivityByCategory(selectedCategory);
-    displayActivityList(filteredActivities);
+  hideActivityDetails(true);
+  if (categoryList.value == "") {
+    activityList.innerHTML = "";
+    return;
+  }
+  let categoryIndex = parseInt(categoryList.value);
+  // let categoryIndex = categoryList.selectedIndex;
+  let selectedCategory = categories[categoryIndex];
+  const filteredActivities = findActivityByCategory(selectedCategory);
+
+  displayActivityList(filteredActivities);
+  loadActivityDetails();
 }
 
 function displayActivityList(activities) {
   activityList.innerHTML = "";
   for (const activity of activities) {
-    const activityOption = new Option(activity.name);
+    const activityOption = new Option(activity.name, activity.id);
     activityList.appendChild(activityOption);
   }
 }
 
 function findActivityByCategory(category) {
-    let filteredList = [];
-    for (const activity of activities) {
-        if (activity.category == category) {
-            filteredList.push(activity);
-        }
+  let filteredList = [];
+  for (const activity of activities) {
+    if (activity.category == category) {
+      filteredList.push(activity);
     }
-    return filteredList;
+  }
+  return filteredList;
 }
 
-function displayActivityDetails() {
-    
+function findActivityById(id) {
+  for (const activity of activities) {
+    if (activity.id == id) {
+      return activity;
+    }
+  }
+}
+
+function loadActivityDetails() {
+  let selectedActivity = findActivityById(activityList.value);
+  //   if (!selectedActivity) {
+  //     activityDetails.style.display = "none";
+  //     return;
+  //   }
+  displayActivityDetails(selectedActivity);
+  hideActivityDetails(false);
+}
+
+function displayActivityDetails(activity) {
+  activityName.innerHTML = `${activity.name}`;
+  activityLocation.innerHTML = `Location: ${activity.location}`;
+
+  activityDescription.innerHTML = `
+  <em>${activity.id}</em>: <br />
+  ${activity.description} <br /> 
+  <strong>${activity.price.toFixed(2)}</strong>`;
+}
+
+function hideActivityDetails(hide) {
+  if (hide) {
+    activityDetails.style.display = "none";
+    return;
+  }
+  activityDetails.style.display = "block";
 }
