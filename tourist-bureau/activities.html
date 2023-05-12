@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Visitor's Bureau</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="activities.html">Activities</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Activities</h2>
+    <select id="category-list" onchange="loadLists();">
+        <option value="">Select Category...</option>
+        <option value="0">Adventures</option>
+        <option value="1">Arts & Crafts</option>
+        <option value="2">Museums</option>
+        <option value="3">Wine Tastings</option>
+        <option value="4">Other</option>
+    </select>
+    <!-- <button onclick="displaySelectedState();">Display Selected State</button> -->
+    <p id="message-details"></p>
+    <select id="activity-list" onchange="">
+    </select>
+    <p id="activity-details"></p>
+  </main>
+
+  <footer>
+    <p>&copy; Local Visitor's Bureau. All rights reserved.</p>
+  </footer>
+  <script src="activities.js"></script>
+</body>
+</html>
