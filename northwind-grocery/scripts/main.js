@@ -16,9 +16,7 @@ searchTypeDDL.addEventListener("change", (event) => {
   }
 });
 
-categoryDDL.addEventListener("change" , (event) => {
-    fetchProducts();
-})
+categoryDDL.addEventListener("change" , (event) => fetchProducts())
 
 function fetchCategories() {
   fetch("http://localhost:8081/api/categories")
@@ -47,6 +45,7 @@ function fetchProducts() {
       }
     });
 }
+
 function loadCategoryList(list) {
   clearCategoryDDL();
   let count = 1;
@@ -103,9 +102,3 @@ function clearTable() {
 function clearCategoryDDL() {
   categoryDDL.innerHTML = "";
 }
-// categoryDDL.addEventListener("change", (event) => {
-// })
-
-// let anchor = document.createElement("a");
-//   anchor.href = `details.html?courseid=${course.id}`;
-//   anchor.text = "See details";
