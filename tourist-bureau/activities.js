@@ -153,6 +153,8 @@ function findActivityByCategory(category) {
   return filteredList;
 }
 
+
+// Activity Details below
 function findActivityById(id) {
   for (const activity of activities) {
     if (activity.id == id) {

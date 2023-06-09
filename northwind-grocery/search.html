@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northwind Search Products</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
+</head>
+<body>
+    <header>
+        <a href="index.html">Home</a>
+        <a href="search.html">Search</a>
+    </header>
+    <main>
+        <select id="search-type-DDL">
+            <option value="0">Select One...</option>
+            <option value="1">Search By Category</option>
+            <option value="2">View All</option>
+        </select>
+        <select id="category-DDL" style="display: none;"></select>
+        <table id="product-tbl">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>More Details</th>
+                </tr>
+            </thead>
+            <tbody id="product-tbl-body"></tbody>
+        </table>
+    </main>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
