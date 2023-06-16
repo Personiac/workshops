@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Northwind Search Products</title>
+    <title>Create Item</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
   </head>
   <body>
@@ -16,25 +17,21 @@
       </nav>
     </header>
     <main>
-      <select id="search-type-DDL">
-        <option value="0">Select One...</option>
-        <option value="1">Search By Category</option>
-        <option value="2">View All</option>
-      </select>
-      <select id="category-DDL" style="display: none"></select>
-      <table id="product-tbl">
-        <thead>
-          <tr>
-            <th>Product ID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>More Details</th>
-          </tr>
-        </thead>
-        <tbody id="product-tbl-body"></tbody>
-      </table>
+      <h1>Create Item</h1>
+      <form onsubmit="handleSubmit(event);">
+        <label for="userId">User ID</label>
+        <input type="text" id="userId" name="userId" />
+
+        <label for="title">Task Title</label>
+        <input type="text" id="title" name="title" />
+
+        <label for="completed">Completed?</label>
+        <input type="text" id="completed" name="completed" />
+
+        <button>Create</button>
+      </form>
     </main>
     <script src="scripts/authenticate.js"></script>
-    <script src="scripts/search.js"></script>
+    <script src="scripts/create.js"></script>
   </body>
 </html>

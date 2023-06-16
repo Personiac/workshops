@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="search.html">Search</a>
+        <a href="adminLogin.html">Login</a>
+        <a href="create.html" style="display: none" id="create-page-link">Create</a>
+      </nav>
+    </header>
+    <main>
+      <h1>Login</h1>
+
+      <form onsubmit="login(event);">
+        <label for="username">Username</label>
+        <input type="text" id="username" />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" />
+
+        <button id="login-btn">Login</button>
+      </form>
+    </main>
+    <script src="scripts/authenticate.js"></script>
+    <script>
+      "use strict";
+
+      const username = document.querySelector("#username");
+      const password = document.querySelector("#password");
+
+      function login(event) {
+        event.preventDefault();
+        if (username.value == "BiggieCheese" && password.value == "password123") {
+          alert("Login Successful");
+          storeAuthenticationKey();
+          window.location.replace("index.html");
+        } else {
+          alert("Unfortunate. Returning to home page.");
+          returnHomePage();
+        }
+      }
+
+      function confirmAction() {
+        const response = confirm("Confirm adding this item?");
+        if (response) {
+          alert("Item Added.");
+          //handleDelete(event);
+          //returnHomePage();
+        } else {
+          alert("Canceled action.");
+        }
+      }
+
+      function returnHomePage() {
+        window.location.replace("index.html");
+      }
+
+      function showCreatePage() {
+        const createPageOption = document.querySelector("#create-page");
+        createPageOption.style.display = "display";
+      }
+      
+    </script>
+  </body>
+</html>

@@ -4,7 +4,7 @@ const categoryDDL = document.querySelector("#category-DDL");
 const searchTypeDDL = document.querySelector("#search-type-DDL");
 const productTbl = document.querySelector("#product-tbl");
 const productTblBody = document.querySelector("#product-tbl-body");
-
+const createPageLink = document.querySelector("#create-page-link");
 
 searchTypeDDL.addEventListener("change", (event) => {
   fetchCategories();
@@ -16,7 +16,8 @@ searchTypeDDL.addEventListener("change", (event) => {
   }
 });
 
-categoryDDL.addEventListener("change" , (event) => fetchProducts())
+categoryDDL.addEventListener("change", (event) => fetchProducts());
+
 
 function fetchCategories() {
   fetch("http://localhost:8081/api/categories")
@@ -55,7 +56,7 @@ function loadCategoryList(list) {
   selectOption.textContent = "Select A Category...";
   categoryDDL.appendChild(selectOption);
 
-  list.sort((a,b) => a.categoryId - b.categoryId);
+  list.sort((a, b) => a.categoryId - b.categoryId);
 
   for (const category of list) {
     let option = new Option(category.name, count);
@@ -65,11 +66,11 @@ function loadCategoryList(list) {
 }
 
 function buildProductRow(product) {
-  let row = productTblBody.insertRow(-1);
-
   let anchor = document.createElement("a");
   anchor.href = `details.html?productid=${product.productId}`;
   anchor.text = "More details";
+
+  let row = productTblBody.insertRow(-1);
 
   row.insertCell(0).innerText = product.productId;
   row.insertCell(1).innerText = product.productName;
